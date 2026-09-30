@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B2E47">
+<meta name="description" content="Adjugé, Transféré ! — Le trivia football des vrais fans de Ligue 1. Mets ta connaissance du foot français aux enchères.">
+<meta name="keywords" content="foot,football,trivia,quiz,mercato,ligue1,enchère,transfert,multijoueur">
+<meta property="og:title" content="Adjugé, Transféré !">
+<meta property="og:description" content="Le trivia football des vrais fans de Ligue 1. Enchères entre potes, duels 1v1, saisons trimestrielles.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adjuge-transfere.app">
+<meta property="og:image" content="https://adjuge-transfere.app/og.png">
+<title>Adjugé, Transféré ! — Le trivia foot des enchères</title>
+<style>
+  :root {
+    --navy: #0B2E47;
+    --navy-2: #0F3B5C;
+    --gold: #F59E0B;
+    --gold-hover: #FBBF24;
+    --red: #DC2626;
+    --text: #F8FAFC;
+    --muted: rgba(255,255,255,0.75);
+    --card: rgba(255,255,255,0.05);
+    --border: rgba(255,255,255,0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 50%, #1A2540 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+  header { text-align: center; padding: 80px 24px 40px; }
+  .logo {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #FFF 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .tagline {
+    font-size: 20px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    border: 2px solid transparent;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    box-shadow: 0 10px 30px rgba(245,158,11,0.4);
+  }
+  .btn-primary:hover { background: var(--gold-hover); box-shadow: 0 15px 40px rgba(245,158,11,0.55); }
+  .btn-secondary {
+    background: transparent;
+    color: #FFF;
+    border-color: rgba(255,255,255,0.4);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: #FFF; }
+  .btn-disabled { opacity: 0.5; pointer-events: none; }
+  section.features { padding: 60px 0; }
+  .features-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    color: var(--gold);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+  }
+  .card-emoji { font-size: 40px; margin-bottom: 12px; }
+  .card-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: #FFF; }
+  .card-desc { font-size: 14px; color: var(--muted); }
+  section.contact {
+    background: rgba(0,0,0,0.25);
+    padding: 60px 24px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .contact h2 { font-size: 28px; font-weight: 900; color: var(--gold); margin-bottom: 24px; }
+  .contact-list { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+  .contact-item { color: var(--muted); font-size: 15px; }
+  .contact-item strong { color: #FFF; font-weight: 700; }
+  .contact-item a { color: var(--gold); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+  footer {
+    padding: 40px 24px;
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 10px; }
+  footer a:hover { color: var(--gold); }
+  .badge-store {
+    display: inline-block;
+    margin: 4px;
+  }
+  .highlight-red { color: var(--red); font-weight: 700; }
+  @media (max-width: 600px) {
+    .logo { font-size: 40px; }
+    .tagline { font-size: 17px; }
+    header { padding: 60px 24px 30px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">⚽ Adjugé, Transféré !</div>
+  <p class="tagline">Le trivia football des vrais fans de Ligue 1.<br>Enchères entre potes, duels 1v1, saisons trimestrielles.</p>
+  <div class="cta-row">
+    <a href="#" class="btn btn-primary btn-disabled" aria-label="Bientôt sur l'App Store">
+      🍎 <span>Bientôt sur l'App Store</span>
+    </a>
+    <a href="#" class="btn btn-primary btn-disabled" aria-label="Bientôt sur Google Play">
+      🤖 <span>Bientôt sur Google Play</span>
+    </a>
+  </div>
+</header>
+
+<section class="features container">
+  <h2 class="features-title">🔨 Comment ça marche ?</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-emoji">🎯</div>
+      <div class="card-title">Devine le nombre de clubs</div>
+      <div class="card-desc">Un joueur apparaît. Combien de clubs a-t-il portés ? Enchéris juste !</div>
+    </div>
+    <div class="card">
+      <div class="card-emoji">⚔️</div>
+      <div class="card-title">Duel Rapide 1v1</div>
+      <div class="card-desc">Trouve un adversaire équilibré (MMR) en moins de 10 secondes.</div>
+    </div>
+    <div class="card">
+      <div class="card-emoji">👥</div>
+      <div class="card-title">Multi jusqu'à 6</div>
+      <div class="card-desc">Salle privée entre potes ou matchmaking public. Chat en direct.</div>
+    </div>
+    <div class="card">
+      <div class="card-emoji">🃏</div>
+      <div class="card-title">« Tu bluffes ? »</div>
+      <div class="card-desc">Défie l'enchère la plus haute. Si l'autre tient — malus ! S'il rate — bonus !</div>
+    </div>
+    <div class="card">
+      <div class="card-emoji">🏆</div>
+      <div class="card-title">Saisons trimestrielles</div>
+      <div class="card-desc">Grimpe le ladder MMR. Top 10 = titre exclusif à vie sur ton profil.</div>
+    </div>
+    <div class="card">
+      <div class="card-emoji">🎊</div>
+      <div class="card-title">Défi du jour</div>
+      <div class="card-desc">Un joueur mystère quotidien, une seule tentative. Fais grimper ta série.</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>📮 Contact</h2>
+  <div class="contact-list">
+    <div class="contact-item"><strong>Presse & questions générales :</strong><br><a href="mailto:contact@adjuge-transfere.app">contact@adjuge-transfere.app</a></div>
+    <div class="contact-item"><strong>Bugs & support technique :</strong><br><a href="mailto:support@adjuge-transfere.app">support@adjuge-transfere.app</a></div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <a href="/privacy.html">Politique de confidentialité</a> ·
+    <a href="/terms.html">CGU</a> ·
+    <a href="mailto:contact@adjuge-transfere.app">Contact</a>
+  </div>
+  <p style="margin-top:16px;">© 2026 Adjugé, Transféré ! · Édité par Maxime</p>
+</footer>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"7f7b0fd8732c4326aae4b9d58d5c514a","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
